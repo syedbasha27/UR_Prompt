@@ -17,7 +17,7 @@ class TextGenerationRequest(BaseModel):
 async def generate_text(request: TextGenerationRequest):
     try:
         # Use user-provided API key
-        API_KEY = "AIzaSyDZ9yYduOG-83sSChY6TnZGHNM9dMQ3noM"
+        API_KEY = os.environ.get("model_api")
         client = genai.Client(api_key=API_KEY)
 
         # Simply try one widely supported model first without nested try/catch hell
